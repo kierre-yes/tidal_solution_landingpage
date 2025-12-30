@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --color-tidal-teal: #0d9488;
+  --color-tidal-teal-light: #14b8a6;
+  --color-tidal-dark: #0f172a;
+  --color-tidal-slate: #334155;
+}
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: #99f6e4;
+  color: #0f766e;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
