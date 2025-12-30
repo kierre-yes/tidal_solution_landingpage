@@ -1,6 +1,7 @@
 "use server";
 
 const WEBHOOK_URL =
+  process.env.N8N_WEBHOOK_URL ||
   "https://kierchrist10.app.n8n.cloud/webhook-test/contact-form";
 
 export async function submitContactForm(formData: {
@@ -13,8 +14,10 @@ export async function submitContactForm(formData: {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "User-Agent": "Tidal-Solutions-App/1.0",
       },
       body: JSON.stringify(formData),
+      cache: "no-store",
     });
 
     if (!response.ok) {
