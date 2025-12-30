@@ -1,8 +1,6 @@
 "use server";
 
-const WEBHOOK_URL =
-  process.env.N8N_WEBHOOK_URL ||
-  "https://kierchrist10.app.n8n.cloud/webhook-test/contact-form";
+const WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
 
 export async function submitContactForm(formData: {
   name: string;
@@ -10,7 +8,7 @@ export async function submitContactForm(formData: {
   message: string;
 }) {
   try {
-    const response = await fetch(WEBHOOK_URL, {
+    const response = await fetch(WEBHOOK_URL!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
